@@ -9,7 +9,7 @@ const PrincipalLogin = () => {
     const Navigate=useNavigate();
 
     useEffect(() => {
-        const render=localStorage.getItem('token')
+        const render=localStorage.getItem('token');
         if(render){
             Navigate('/Principledash')
         }
