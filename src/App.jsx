@@ -17,7 +17,6 @@ import StudentLogin from './Components/Students/StudentLogin'
 import Studentshownotes from './Components/Students/Studentshownotes'
 import Protectingrouts from './Protectingroute/Protectingrouts'
 import Footer from './Components/Footer'
-// import PrincipalProtectingrouts from './Protectingroute/Protectingrouts'
 
 function App() {
   const location =useLocation()
