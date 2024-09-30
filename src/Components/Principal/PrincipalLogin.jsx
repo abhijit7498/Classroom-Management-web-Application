@@ -40,6 +40,7 @@ const PrincipalLogin = () => {
             }
         }catch(err){
             alert("server error Try Later")
+            console.log(err)
         }
         
     };

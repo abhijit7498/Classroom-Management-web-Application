@@ -21,7 +21,7 @@ const TeacherLogin = () => {
   const Finduser = async (e) => {
     e.preventDefault();
     try {
-      const responce = await axios.post('http://localhost:3000/Teacherlogin', { Username: Username, Password: Password });
+      const responce = await axios.post('https://classroom-management-web-application-1.onrender.com/Teacherlogin', { Username: Username, Password: Password });
       if (responce.data.message === "User Exist") {
         const token=responce.data.token;
         localStorage.setItem("token",token)

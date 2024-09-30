@@ -80,7 +80,7 @@ app.post('/FindTimetable', async (req, res) => {
 
 app.post('/PrincipalLogin', async (req, res) => {
     const { Username, Password } = req.body; // Get the username and password from the request body
-
+    try{
     // Find the user with the given Username and Password
     let principal = await Principal.findOne({ Username });
 
@@ -89,14 +89,16 @@ app.post('/PrincipalLogin', async (req, res) => {
         // Validate the password
         if (Password === principal.Password) {
             const token = jwt.sign({ Username: Principal.Username, role: 'principal' }, JWT_SECRET, { expiresIn: '1h' })
-            res.json({ message: "User authenticated successfully", token });
+            return res.json({ message: "User authenticated successfully", token });
         } else {
-            res.send("Invalid Password"); // 401 Unauthorized
+            return res.send("Invalid Password"); // 401 Unauthorized
         }
     } else {
-        res.send("User does not exist"); // 404 Not Found
+         return res.send("User does not exist"); // 404 Not Found
     }
-
+    }catch(err){
+        console.log(err)
+    }
 
 
 })
